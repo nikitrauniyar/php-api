@@ -1,6 +1,5 @@
 <?php
 
-
 $url = "https://api.publicapis.org/entries"; // declaring url
 $json = file_get_contents($url);             //getting json from api
 $json_data = json_decode($json, true);       // decoding json
@@ -18,7 +17,7 @@ foreach($entries as $entry){
 }
 
 //sorting the new API array alphabetically
-sort($api_array);
+usort($api_array, 'strnatcasecmp');
 
 // Printing APIs
 echo "The list of API values in alphabetical order is printed below.\n";
@@ -51,11 +50,6 @@ if(count($res)>0){
 } else{
     echo "No results";
 }
-
-
-
-
-
 ?>
 
 
